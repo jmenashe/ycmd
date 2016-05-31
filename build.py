@@ -152,6 +152,11 @@ def CheckOutput( *popen_args, **kwargs ):
 
 def FindPythonLibraries():
   include_dir = sysconfig.get_python_inc()
+  dynamic_lib_path = os.path.join(sysconfig.get_config_var('LIBPL'), sysconfig.get_config_var('INSTSONAME'))
+  return dynamic_lib_path, include_dir
+  
+  # everything below this line is garbage
+
   # get_python_lib with the standard_lib parameter set to True returns the
   # standard Python modules directory. Python libraries should always be in
   # the parent directory or one of its subdirectories.

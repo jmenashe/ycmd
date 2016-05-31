@@ -152,7 +152,7 @@ def CheckOutput( *popen_args, **kwargs ):
 
 def FindPythonLibraries():
   include_dir = sysconfig.get_python_inc()
-  dynamic_lib_path = os.path.join(sysconfig.get_config_var('LIBPL'), sysconfig.get_config_var('INSTSONAME'))
+  dynamic_lib_path = os.path.join(sysconfig.get_config_var('LIBPL'), "libpython%s.so" % sysconfig.get_python_version())
   return dynamic_lib_path, include_dir
   
   # everything below this line is garbage

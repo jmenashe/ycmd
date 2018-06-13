@@ -195,8 +195,10 @@ class JediCompleter( Completer ):
                                  native( url ),
                                  data = body,
                                  headers = extra_headers )
-
-    response.raise_for_status()
+    try:
+      response.raise_for_status()
+    except:
+      return None
     return response.json()
 
 
